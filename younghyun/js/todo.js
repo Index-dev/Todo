@@ -1,13 +1,18 @@
 const todoForm = document.querySelector(".todoForm"),
   inputText = todoForm.querySelector(".inputText");
 
+const todoList = [];
+
 function handleSubmit(event) {
   event.preventDefault();
-  console.log(inputText.value);
+  const content = inputText.value;
+  todoList.splice(0, 0, content);
+  inputText.value = "";
+  console.log(todoList);
 }
 
 function init() {
-  TodoForm.addEventListener("submit", handleSubmit);
+  todoForm.addEventListener("submit", handleSubmit);
 }
 
 init();
