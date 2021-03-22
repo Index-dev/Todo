@@ -1,5 +1,5 @@
-const TodoForm = document.querySelector(".todoForm"),
-  inputText = TodoForm.querySelector(".inputText");
+const todoForm = document.querySelector(".todoForm"),
+  inputText = todoForm.querySelector(".inputText");
 
 function handleSubmit(event) {
   event.preventDefault();
