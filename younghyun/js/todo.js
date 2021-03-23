@@ -10,9 +10,9 @@ function handleSubmit(event) {
   todoList.splice(0, 0, content);
   inputText.value = "";
   const li = document.createElement("li");
-  const text = document.createElement("p");
-  text.innerText = content;
-  li.appendChild(text);
+  const work = document.createElement("p");
+  work.innerText = content;
+  li.appendChild(work);
   listForm.appendChild(li);
 }
 
