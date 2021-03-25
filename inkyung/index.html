@@ -35,13 +35,13 @@
 		</script>
 	</div>
     <div class="main__title">
-        <h1 style="margin-top:0;">인경's To do List 🗒</h1>
+        <h1 style="margin-top:0;">인경's To do List <i class="far fa-sticky-note"></i></h1>
     </div>
 
     <div class="input__section">
-        <form>
+        <form onsubmit="return false">
             <div>
-                <input type = "text" class = "item" autofocus="true">
+                <input type = "text" class = "item" autofocus="true" onkeydown="JavaScript:enterkey();">
             </div>
             <div>
                 <button type = "button" class="input__button"><i class="fas fa-paw"></i></button>

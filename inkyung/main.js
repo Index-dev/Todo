@@ -10,6 +10,12 @@ let check = "none"; //체크있는 박스
 let uncheck = "visible"; //빈 박스
 let temp = "";
 
+function enterkey() {
+	if (window.event.keyCode == 13) {
+		 addItem();
+	}
+}
+
 function addItem() {
     let item = document.querySelector(".item").value;
     if (item.length > 0) {
