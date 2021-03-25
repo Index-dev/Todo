@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+
+body {
+  caret-color: black;
+  color: black;
+  font-family: 'Nanum Pen Script', cursive;
+}
+
+#todolist {
+  text-align: left;
+  max-width: 550px;
+  margin: auto;
+}
+
+.date {
+	text-align: right;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.main__title {
+  margin: 0px;
+  padding-bottom: 0px;
+  text-align: center;
+  color: black;
+  text-decoration: underline;
+}
+
+.main__title h1 {
+  /**margin-bottom: 5px;**/
+}
+
+.input__section {
+  margin: auto;
+}
+
+.input__section form {
+  margin: 0px 70px 5px 70px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.item {
+  /**width: 300px;**/
+  height: 30px;
+  border-bottom: 2px solid;
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+  padding: 0px 30px; 
+}
+
+*:focus {
+  outline: none;
+}
+
+.input__button {
+  background-color: transparent;
+  font-size: 25px;
+  line-height: 60px;
+  margin-left: 5px;
+  color: black;
+  border: 0;
+}
+
+.input__button:hover {
+	font-size: 40px;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+ul li {
+  cursor: pointer;
+  position: relative;
+  padding: 12px 8px 12px 110px;
+  font-size: 30px;
+  transition: 0.3s;
+}
+
+ul li:hover {
+  background: #f0f0f0;
+}
+
+.check {
+  font-size: 30px;
+  position: absolute;
+  left: 10px;
+  top: 0;
+  align-items: center;
+  text-align: center;
+  margin: 6.5px 20px;
+  padding: 4px 8px;
+  border: none;
+  background: rgba(255, 255, 255, 0);
+}
+
+.check:hover {
+  border-radius: 50%;
+  color: red;
+  font-size: 33px;
+}
+
+.uncheck {
+  font-size: 30px;
+  position: absolute;
+  left: 10px;
+  top: 0;
+  align-items: center;
+  text-align: center;
+  margin: 6.5px 20px;
+  padding: 4px 8px;
+  border: none;
+  background: rgba(255, 255, 255, 0);
+}
+
+.uncheck:hover {
+  border-radius: 50%;
+  color: red;
+  font-size: 33px;
+}
+
+.items {
+  font-size: 25px;
+}
+
+.close {
+  font-size: 30px;
+  position: absolute;
+  right: 10px;
+  font-size: 27px;
+  top: 0;
+  align-items: center;
+  text-align: center;
+  margin: 8px 20px;
+  padding: 4px 8px;
+  border: none;
+  background: rgba(255, 255, 255, 0);
+}
+
+.close:hover {
+  border-radius: 50%;
+  color: red;
+  font-size: 33px;
+}

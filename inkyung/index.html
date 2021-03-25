@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>투두투두뚜두🙌</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+      rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="todolist">
+	<div class="date" id='currentDate'>
+		<script>
+			document.write(document.getElementById('currentDate').value = new Date().toISOString().substring(0, 10));
+		</script>
+		<br/>
+		<script>
+			document.write(new Date().getFullYear());
+			document.write(".");
+			if(new Date().getMonth()+1 < 10){
+				var month = "0" + new String(new Date().getMonth()+1);
+				document.write(month);
+			}else{
+				document.write(new String(new Date().getMonth()+1));
+			}
+			document.write(".");
+			if(new Date().getDate()+1 < 10){
+				var day = "0" + new String(new Date().getDate());
+				document.write(day);
+			}else{
+				document.write(new String(new Date().getDate()));
+			}			
+		</script>
+	</div>
+    <div class="main__title">
+        <h1 style="margin-top:0;">인경's To do List 🗒</h1>
+    </div>
+
+    <div class="input__section">
+        <form>
+            <div>
+                <input type = "text" class = "item" autofocus="true">
+            </div>
+            <div>
+                <button type = "button" class="input__button"><i class="fas fa-paw"></i></button>
+            </div>
+        </form>
+    </div>
+
+	<div class="item__list"></div>
+
+</div>
+
+    <script src="main.js" defer></script>
+		
+</body>
+</html>
