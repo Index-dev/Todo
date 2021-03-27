@@ -48,7 +48,7 @@ body {
   display: flex;
 }
 
-.day {
+.date {
   font-size: 3rem;
   margin-top: 4px;
   margin-right: 6px;
@@ -84,11 +84,15 @@ body {
   height: 60px;
   width: 450px;
   box-shadow: 0 2px 3px 2px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  background-color: rgb(218, 218, 218);
 }
 
 .todo-list-box {
   display: flex;
   flex-direction: column;
+  padding: 20px 25px;
+  width: 100%;
 }
 
 input {
@@ -109,4 +113,34 @@ button {
   height: 50px;
   cursor: pointer;
   box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.4);
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  border-bottom: 1px solid #888;
+}
+
+.todo-item-checkbox {
+  width: 30px;
+}
+
+.todo-item-text {
+  width: 100%;
+}
+
+.checked {
+  text-decoration: line-through;
+  color: #666;
+}
+
+.btn-delete {
+  background-color: rgb(204, 49, 49);
+  color: #fff;
+  height: 32px;
+  font-size: 1rem;
 }
