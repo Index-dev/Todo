@@ -23,5 +23,16 @@ function addTodo(value) {
   todoList.push(value);
   inputTodo.value = '';
 
-  const html = ``;
+  // Insert part
+  todoListBox.innerHTML = '';
+
+  todoList.forEach(todo => {
+    const html = `
+      <div class='todo-item'>
+        ${todo}
+      </div>
+    `;
+
+    todoListBox.insertAdjacentHTML('beforeend', html);
+  });
 }
