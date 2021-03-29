@@ -133,7 +133,7 @@ button {
   width: 100%;
 }
 
-.checked {
+.checked .todo-item-text {
   text-decoration: line-through;
   color: #666;
 }
