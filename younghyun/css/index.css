@@ -1,4 +1,17 @@
 body {
-  background-color: rgba(0, 2, 46, 1);
-  color: white;
+    background-color: rgba(0, 2, 46, 1);
+}
+
+.todoItem {
+    background-color: white;
+    cursor: move;
+}
+
+.todoContainer {
+    padding: 1rem;
+    margin: 1rem;
+    border: 1px solid white;
+}
+.dragging {
+    opacity: 0.5;
 }
