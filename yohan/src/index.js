@@ -13,6 +13,31 @@ let todoItemList = null;
 let todoItemDelBtns = null;
 
 // Datas
+const months = [
+  'JAN',
+  'FEB',
+  'MAR',
+  'APR',
+  'MAY',
+  'JUN',
+  'JUL',
+  'AUG',
+  'SEP',
+  'OCT',
+  'NOV',
+  'DEV',
+];
+
+const days = [
+  'SUNDAY',
+  'MONDAY',
+  'TUESDAY',
+  'WEDNESDAY',
+  'THURSDAY',
+  'FRIDAY',
+  'SATURDAY',
+];
+
 const todoList = [];
 
 // Events
@@ -88,93 +113,9 @@ function updateDate() {
   date.textContent = currentTime.getDate();
 
   // 월 정하기
-  switch (currentTime.getMonth()) {
-    case 0:
-      month.textContent = 'JAN';
-      break;
-
-    case 1:
-      month.textContent = 'FEB';
-      break;
-
-    case 2:
-      month.textContent = 'MAR';
-      break;
-
-    case 3:
-      month.textContent = 'APR';
-      break;
-
-    case 4:
-      month.textContent = 'MAY';
-      break;
-
-    case 5:
-      month.textContent = 'JUN';
-      break;
-
-    case 6:
-      month.textContent = 'JUL';
-      break;
-
-    case 7:
-      month.textContent = 'AUG';
-      break;
-
-    case 8:
-      month.textContent = 'SEP';
-      break;
-
-    case 9:
-      month.textContent = 'OCT';
-      break;
-
-    case 10:
-      month.textContent = 'NOV';
-      break;
-
-    case 11:
-      month.textContent = 'DEC';
-      break;
-  }
-
+  month.textContent = months[currentTime.getMonth()];
   // 요일 정하기
-  switch (currentTime.getDay()) {
-    // 일요일
-    case 0:
-      day.textContent = 'SUNDAY';
-      break;
-
-    // 월요일
-    case 1:
-      day.textContent = 'MONDAY';
-      break;
-
-    // 화요일
-    case 2:
-      day.textContent = 'TUESDAY';
-      break;
-
-    // 수요일
-    case 3:
-      day.textContent = 'WEDNESDAY';
-      break;
-
-    // 목요일
-    case 4:
-      day.textContent = 'THURSDAY';
-      break;
-
-    // 금요일
-    case 5:
-      day.textContent = 'FRIDAY';
-      break;
-
-    // 토요일
-    case 6:
-      day.textContent = 'SATURDAY';
-      break;
-  }
+  day.textContent = days[currentTime.getDay()];
 }
 
 updateDate();
