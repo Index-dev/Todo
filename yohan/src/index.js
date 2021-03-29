@@ -62,6 +62,13 @@ function addTodo(value) {
     text: value,
     checked: false,
   });
+
+  render();
+}
+
+function deleteTodo(idx) {}
+
+function render() {
   inputTodo.value = '';
 
   // clear before append
@@ -88,7 +95,7 @@ function addTodo(value) {
   todoItemList = document.querySelectorAll('.todo-item');
   todoItemDelBtns = document.querySelectorAll('.btn-delete');
 
-  // Add event to all todo list
+  // Add check event to all todo list
   todoItemCheckboxList.forEach((todo, idx) => {
     // Add checked style
     todo.addEventListener('click', e => {
@@ -103,8 +110,6 @@ function addTodo(value) {
       }
     });
   });
-
-  console.log(todoList);
 }
 
 function updateDate() {
