@@ -66,7 +66,10 @@ function addTodo(value) {
   render();
 }
 
-function deleteTodo(idx) {}
+function deleteTodo(idx) {
+  todoList.splice(idx, 1);
+  render();
+}
 
 function render() {
   inputTodo.value = '';
@@ -83,7 +86,7 @@ function render() {
             ${todo.text}
           </div>
 
-        <button class='btn-delete'>Delete</button>
+        <button class='btn-delete' name='del-${idx}'>Delete</button>
       </div>
     `;
 
@@ -95,7 +98,7 @@ function render() {
   todoItemList = document.querySelectorAll('.todo-item');
   todoItemDelBtns = document.querySelectorAll('.btn-delete');
 
-  // Add check event to all todo list
+  // Add check event to all todo item
   todoItemCheckboxList.forEach((todo, idx) => {
     // Add checked style
     todo.addEventListener('click', e => {
@@ -108,6 +111,15 @@ function render() {
           target.classList.add('checked');
         }
       }
+    });
+  });
+
+  // Add delete event to all todo item
+  todoItemDelBtns.forEach((delBtn, idx) => {
+    delBtn.addEventListener('click', e => {
+      const targetIdx = Number(e.target.name.split('-')[1]);
+
+      idx === targetIdx && deleteTodo(targetIdx);
     });
   });
 }
