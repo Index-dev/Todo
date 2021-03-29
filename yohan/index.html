@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- style -->
+    <link rel="stylesheet" href="./src/css/index.css" />
+
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- Todo App -->
+    <div class="todoApp">
+      <div class="header">
+        <div class="header-left">
+          <div class="date"></div>
+          <div class="box">
+            <div class="month"></div>
+            <div class="year"></div>
+          </div>
+        </div>
+        <div class="header-right day"></div>
+      </div>
+      <div class="body">
+        <div class="input-box">
+          <input type="text" class="input-todo" /><button class="btn-add">
+            추가
+          </button>
+        </div>
+        <div class="todo-list-box"></div>
+      </div>
+    </div>
+
+    <!-- source code -->
+    <script type="module" src="./src/index.js"></script>
+  </body>
+</html>
