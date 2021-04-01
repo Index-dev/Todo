@@ -1,3 +1,16 @@
+function addDragTags() {
+  const draggables = document.querySelectorAll(".todoItem");
+  draggables.forEach((draggable) => {
+    draggable.addEventListener("dragstart", () => {
+      console.log("dragging");
+      draggable.classList.add("dragging");
+    });
+    draggable.addEventListener("dragend", () => {
+      draggable.classList.remove("dragging");
+    });
+  });
+}
+
 const todoForm = document.querySelector(".todoForm"),
   inputText = todoForm.querySelector(".inputText"),
   listUl = document.querySelector(".todoList");
@@ -46,22 +59,21 @@ function removeTodo(event) {
   const button = event.target;
   const li = button.parentNode;
   const result = todoList.filter((todo) => {
-    console.log(todo.index, li.id);
     return todo.index != li.id;
   });
   saveList(result);
-  init();
+  load();
 }
 
 function load() {
   if (localStorage.getItem("todo list")) {
-    savedList = JSON.parse(localStorage.getItem("todo list"));
+    const savedList = JSON.parse(localStorage.getItem("todo list"));
     todoList = savedList;
-    saveList(todoList);
     clear();
     todoList.forEach(function (todo) {
       draw(todo);
     });
+    addDragTags();
   }
 }
 

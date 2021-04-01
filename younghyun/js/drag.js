@@ -1,15 +1,4 @@
-const draggables = document.querySelectorAll(".todoItem");
 const containers = document.querySelectorAll(".todoContainer");
-
-draggables.forEach((draggable) => {
-  draggable.addEventListener("dragstart", () => {
-    draggable.classList.add("dragging");
-    console.log(draggable);
-  });
-  draggable.addEventListener("dragend", () => {
-    draggable.classList.remove("dragging");
-  });
-});
 
 containers.forEach((container) => {
   container.addEventListener("dragover", (event) => {
