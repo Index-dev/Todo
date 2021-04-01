@@ -4,6 +4,7 @@ const containers = document.querySelectorAll(".todoContainer");
 draggables.forEach((draggable) => {
   draggable.addEventListener("dragstart", () => {
     draggable.classList.add("dragging");
+    console.log(draggable);
   });
   draggable.addEventListener("dragend", () => {
     draggable.classList.remove("dragging");
@@ -15,17 +16,19 @@ containers.forEach((container) => {
     event.preventDefault();
     const afterElement = getDragAfterElement(container, event.clientY);
     const draggedli = document.querySelector(".dragging");
+
+    // console.log(todoList);
+    // document.querySelectorAll(".todoItem").forEach(function (item) {
+    //     console.log(item);
+    //     console.log(item.querySelector("p").innerText);
+    // });
+
     if (afterElement === undefined) {
+      console.log(draggedli);
       container.appendChild(draggedli);
     } else {
       container.insertBefore(draggedli, afterElement);
     }
-
-    const liList = document.querySelectorAll("li");
-    console.log(liList);
-    // listUl.element.forEach(function (li) {
-    //   console.log(li);
-    // });
   });
 });
 
