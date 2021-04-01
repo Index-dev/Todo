@@ -1,8 +1,11 @@
+const todoForm = document.querySelector(".todoForm"),
+  inputText = todoForm.querySelector(".inputText"),
+  commonList = document.querySelector(".common");
+
 function addDragTags() {
   const draggables = document.querySelectorAll(".todoItem");
   draggables.forEach((draggable) => {
     draggable.addEventListener("dragstart", () => {
-      console.log("dragging");
       draggable.classList.add("dragging");
     });
     draggable.addEventListener("dragend", () => {
@@ -11,15 +14,10 @@ function addDragTags() {
   });
 }
 
-const todoForm = document.querySelector(".todoForm"),
-  inputText = todoForm.querySelector(".inputText"),
-  listUl = document.querySelector(".todoList");
-
 let todoList = [];
 function getIndex() {
   let max = 0;
   todoList.forEach(function (item) {
-    console.log(max, item.index);
     max = max > item.index ? max : item.index;
   });
   return max + 1;
@@ -30,6 +28,7 @@ function handleSubmit(event) {
     index: getIndex(),
     content: inputText.value,
     done: false,
+    importance: "common",
   };
   inputText.value = "";
   todoList.splice(0, 0, content);
@@ -48,12 +47,12 @@ function draw(todo) {
   const button = document.createElement("button");
   button.addEventListener("click", removeTodo);
   button.innerText = "삭제";
-  li.className = "todoItem";
+  li.classList.add("todoItem", todo.done, todo.importance);
   li.draggable = "true";
   li.appendChild(button);
   li.appendChild(work);
   li.id = todo.index;
-  listUl.appendChild(li);
+  commonList.appendChild(li);
 }
 function removeTodo(event) {
   const button = event.target;
@@ -66,10 +65,10 @@ function removeTodo(event) {
 }
 
 function load() {
+  clear();
   if (localStorage.getItem("todo list")) {
     const savedList = JSON.parse(localStorage.getItem("todo list"));
     todoList = savedList;
-    clear();
     todoList.forEach(function (todo) {
       draw(todo);
     });
@@ -78,7 +77,7 @@ function load() {
 }
 
 function clear() {
-  listUl.innerHTML = "";
+  commonList.innerHTML = "";
 }
 
 function init() {

@@ -6,17 +6,25 @@ containers.forEach((container) => {
     const afterElement = getDragAfterElement(container, event.clientY);
     const draggedli = document.querySelector(".dragging");
 
-    // console.log(todoList);
-    // document.querySelectorAll(".todoItem").forEach(function (item) {
-    //     console.log(item);
-    //     console.log(item.querySelector("p").innerText);
-    // });
-
     if (afterElement === undefined) {
-      console.log(draggedli);
       container.appendChild(draggedli);
     } else {
       container.insertBefore(draggedli, afterElement);
+    }
+
+    let newArray = [];
+    document.querySelectorAll(".todoItem").forEach(function (item) {
+      newArray.push({
+        index: parseInt(item.id),
+        content: item.querySelector("p").innerText,
+        done: Boolean(item.classList[1]),
+        importance: item.classList[2],
+      });
+    });
+
+    saveList(newArray);
+    function saveList(List) {
+      return localStorage.setItem("todo list", JSON.stringify(List));
     }
   });
 });
