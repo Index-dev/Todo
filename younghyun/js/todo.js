@@ -1,6 +1,7 @@
 const todoForm = document.querySelector(".todoForm"),
   inputText = todoForm.querySelector(".inputText"),
-  commonList = document.querySelector(".common");
+  commonList = document.querySelector(".common"),
+  importantList = document.querySelector(".important");
 
 function addDragTags() {
   const draggables = document.querySelectorAll(".todoItem");
@@ -14,10 +15,12 @@ function addDragTags() {
   });
 }
 
-let todoList = [];
+let tempCommons = [];
+let tempImportants = [];
 function getIndex() {
   let max = 0;
-  todoList.forEach(function (item) {
+  console.log(tempCommons, commonList);
+  tempCommons.forEach(function (item) {
     max = max > item.index ? max : item.index;
   });
   return max + 1;
@@ -31,13 +34,13 @@ function handleSubmit(event) {
     importance: "common",
   };
   inputText.value = "";
-  todoList.splice(0, 0, content);
-  saveList(todoList);
+  tempCommons.splice(0, 0, content);
+  saveList(tempCommons);
   load();
 }
 
 function saveList(List) {
-  return localStorage.setItem("todo list", JSON.stringify(List));
+  return localStorage.setItem("Commons", JSON.stringify(List));
 }
 
 function draw(todo) {
@@ -52,12 +55,17 @@ function draw(todo) {
   li.appendChild(button);
   li.appendChild(work);
   li.id = todo.index;
-  commonList.appendChild(li);
+  if (todo.importance === "important") {
+    importantList.appendChild(li);
+  } else {
+    commonList.appendChild(li);
+  }
 }
 function removeTodo(event) {
   const button = event.target;
   const li = button.parentNode;
-  const result = todoList.filter((todo) => {
+  console.log(tempCommons, li);
+  const result = tempCommons.filter((todo) => {
     return todo.index != li.id;
   });
   saveList(result);
@@ -66,18 +74,26 @@ function removeTodo(event) {
 
 function load() {
   clear();
-  if (localStorage.getItem("todo list")) {
-    const savedList = JSON.parse(localStorage.getItem("todo list"));
-    todoList = savedList;
-    todoList.forEach(function (todo) {
+  if (localStorage.getItem("Commons")) {
+    const commons = JSON.parse(localStorage.getItem("Commons"));
+    tempCommons = commons;
+    tempCommons.forEach(function (todo) {
       draw(todo);
     });
-    addDragTags();
   }
+  if (localStorage.getItem("Importants")) {
+    const importants = JSON.parse(localStorage.getItem("Importants"));
+    tempImportants = importants;
+    tempImportants.forEach(function (todo) {
+      draw(todo);
+    });
+  }
+  addDragTags();
 }
 
 function clear() {
   commonList.innerHTML = "";
+  importantList.innerHTML = "";
 }
 
 function init() {

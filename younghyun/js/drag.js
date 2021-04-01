@@ -12,19 +12,30 @@ containers.forEach((container) => {
       container.insertBefore(draggedli, afterElement);
     }
 
-    let newArray = [];
+    let newImportants = [];
+    let newCommons = [];
     document.querySelectorAll(".todoItem").forEach(function (item) {
-      newArray.push({
-        index: parseInt(item.id),
-        content: item.querySelector("p").innerText,
-        done: Boolean(item.classList[1]),
-        importance: item.classList[2],
-      });
+      if (item.classList[2] === "important") {
+        newImportants.push({
+          index: parseInt(item.id),
+          content: item.querySelector("p").innerText,
+          done: Boolean(item.classList[1]),
+          importance: item.classList[2],
+        });
+      } else {
+        newCommons.push({
+          index: parseInt(item.id),
+          content: item.querySelector("p").innerText,
+          done: Boolean(item.classList[1]),
+          importance: item.classList[2],
+        });
+      }
     });
 
-    saveList(newArray);
-    function saveList(List) {
-      return localStorage.setItem("todo list", JSON.stringify(List));
+    saveList(newImportants, newCommons);
+    function saveList(importants, commons) {
+      localStorage.setItem("Importants", JSON.stringify(importants));
+      localStorage.setItem("Commons", JSON.stringify(commons));
     }
   });
 });
