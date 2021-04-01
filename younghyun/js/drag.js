@@ -20,6 +20,12 @@ containers.forEach((container) => {
     } else {
       container.insertBefore(draggedli, afterElement);
     }
+
+    const liList = document.querySelectorAll("li");
+    console.log(liList);
+    // listUl.element.forEach(function (li) {
+    //   console.log(li);
+    // });
   });
 });
 
@@ -31,10 +37,8 @@ function getDragAfterElement(container, y) {
     const box = child.getBoundingClientRect();
     const offset = y - box.top - box.height / 2;
     if (offset < 0 && offset > closest.offset) {
-      console.log("child", todoList, child);
       return { offset: offset, element: child };
     } else {
-      console.log("closest", todoList, closest);
       return closest;
     }
   }, closestInitialValue()).element;
