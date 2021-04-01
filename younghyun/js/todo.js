@@ -3,10 +3,18 @@ const todoForm = document.querySelector(".todoForm"),
     listUl = document.querySelector(".todoList");
 
 let todoList = [];
+function getIndex() {
+    let max = 0;
+    todoList.forEach(function (item) {
+        console.log(max, item.index);
+        max = max > item.index ? max : item.index;
+    });
+    return max + 1;
+}
 function handleSubmit(event) {
     event.preventDefault();
     const content = {
-        index: todoList.length,
+        index: getIndex(),
         content: inputText.value,
         done: false,
     };
@@ -31,17 +39,18 @@ function draw(todo) {
     li.draggable = "true";
     li.appendChild(button);
     li.appendChild(work);
-    li.index = todo.index;
+    li.id = todo.index;
     listUl.appendChild(li);
 }
 function removeTodo(event) {
     const button = event.target;
     const li = button.parentNode;
     const result = todoList.filter((todo) => {
-        return todo.index !== li.index;
+        console.log(todo.index, li.id);
+        return todo.index != li.id;
     });
     saveList(result);
-    load();
+    init();
 }
 
 function load() {
