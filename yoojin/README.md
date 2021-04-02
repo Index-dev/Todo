@@ -8,13 +8,13 @@
 - react-app
   : SCSS, Javascript , react
 
-<ul>
-    <input type= "checkbox" /> input component
-    <input type= "checkbox" /> List component
-    <input type= "checkbox" /> ListItem component
-    <input type= "checkbox" /> TODOTemplate component
-    <input type= "checkbox" /> TODO SCSS
-    <input type= "checkbox" /> TODO ADD
-    <input type= "checkbox" /> TODO DELETE
-    <input type= "checkbox" /> React Hook
-</ul>
+- 기능
+  - [X] input component
+  - [X] List component
+  - [X] ListItem component
+  - [X] TODOTemplate component
+  - [ ] TODO SCSS
+  - [X] TODO ADD
+  - [X] TODO DELETE
+  - [ ] TODO UPDATE
+  - [X] React Hook
