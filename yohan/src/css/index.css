@@ -135,7 +135,7 @@ button {
 
 .checked .todo-item-text {
   text-decoration: line-through;
-  color: #666;
+  color: #aaa;
 }
 
 .btn-delete {
