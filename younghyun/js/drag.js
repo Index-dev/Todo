@@ -34,14 +34,14 @@ function FixSessionList() {
       newImportants.push({
         index: parseInt(item.id),
         content: item.querySelector("p").innerText,
-        done: Boolean(item.classList.contains("true") ? "true" : "false"),
+        done: item.classList.contains("done") ? "done" : "donsn`t",
         importance: "important",
       });
     } else {
       newCommons.push({
         index: parseInt(item.id),
         content: item.querySelector("p").innerText,
-        done: Boolean(item.classList.contains("true") ? "true" : "false"),
+        done: item.classList.contains("done") ? "done" : "donsn`t",
         importance: "common",
       });
     }

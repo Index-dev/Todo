@@ -19,8 +19,10 @@ let tempCommons = [];
 let tempImportants = [];
 function getIndex() {
   let max = 0;
-  console.log(tempCommons, commonList);
   tempCommons.forEach(function (item) {
+    max = max > item.index ? max : item.index;
+  });
+  tempImportants.forEach(function (item) {
     max = max > item.index ? max : item.index;
   });
   return max + 1;
@@ -30,17 +32,20 @@ function handleSubmit(event) {
   const content = {
     index: getIndex(),
     content: inputText.value,
-    done: false,
+    done: "done",
     importance: "common",
   };
   inputText.value = "";
   tempCommons.splice(0, 0, content);
-  saveList(tempCommons);
+  saveCommonList(tempCommons);
   load();
 }
 
-function saveList(List) {
+function saveCommonList(List) {
   return localStorage.setItem("Commons", JSON.stringify(List));
+}
+function saveImportantList(List) {
+  return localStorage.setItem("Importants", JSON.stringify(List));
 }
 
 function draw(todo) {
@@ -64,11 +69,17 @@ function draw(todo) {
 function removeTodo(event) {
   const button = event.target;
   const li = button.parentNode;
-  console.log(tempCommons, li);
-  const result = tempCommons.filter((todo) => {
-    return todo.index != li.id;
-  });
-  saveList(result);
+  if (li.classList.contains("common")) {
+    const result = tempCommons.filter((todo) => {
+      return todo.index != li.id;
+    });
+    saveCommonList(result);
+  } else {
+    const result = tempImportants.filter((todo) => {
+      return todo.index != li.id;
+    });
+    saveImportantList(result);
+  }
   load();
 }
 
