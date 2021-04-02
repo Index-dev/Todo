@@ -32,7 +32,7 @@ function handleSubmit(event) {
   const content = {
     index: getIndex(),
     content: inputText.value,
-    done: "done",
+    done: "doesn`t",
     importance: "common",
   };
   inputText.value = "";
@@ -52,12 +52,16 @@ function draw(todo) {
   const li = document.createElement("li");
   const work = document.createElement("p");
   work.innerText = todo.content;
-  const button = document.createElement("button");
-  button.addEventListener("click", removeTodo);
-  button.innerText = "삭제";
+  const remove = document.createElement("button");
+  remove.addEventListener("click", removeTodo);
+  remove.innerText = "삭제";
+  const done = document.createElement("button");
+  done.addEventListener("click", changeDone);
+  done.innerText = li.classList.contains("done") ? "doesn`t" : "done";
   li.classList.add("todoItem", todo.done, todo.importance);
   li.draggable = "true";
-  li.appendChild(button);
+  li.appendChild(remove);
+  li.appendChild(done);
   li.appendChild(work);
   li.id = todo.index;
   if (todo.importance === "important") {
@@ -81,6 +85,43 @@ function removeTodo(event) {
     saveImportantList(result);
   }
   load();
+}
+function changeDone(event) {
+  const button = event.target;
+  const li = button.parentNode;
+  if (li.classList.contains("done")) {
+    li.classList.remove("done");
+    li.classList.add("doesn`t");
+  } else {
+    li.classList.remove("doesn`t");
+    li.classList.add("done");
+  }
+
+  if (li.classList.contains("important")) {
+    let tempImportant = JSON.parse(localStorage.getItem("Importants"));
+    for (
+      let index = 0, length = tempImportant.length;
+      index < length;
+      index++
+    ) {
+      if (tempImportant[index].index == parseInt(li.id)) {
+        tempImportant[index].done =
+          tempImportant[index].done === "done" ? "doesn`t" : "done";
+        break;
+      }
+    }
+    saveImportantList(tempImportant);
+  } else {
+    let tempCommon = JSON.parse(localStorage.getItem("Commons"));
+    for (let index = 0, length = tempCommon.length; index < length; index++) {
+      if (tempCommon[index].index == parseInt(li.id)) {
+        tempCommon[index].done =
+          tempCommon[index].done === "done" ? "doesn`t" : "done";
+        break;
+      }
+    }
+    saveCommonList(tempCommon);
+  }
 }
 
 function load() {
