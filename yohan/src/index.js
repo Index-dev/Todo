@@ -63,12 +63,23 @@ function addTodo(value) {
     checked: false,
   });
 
+  makePersistent(todoList, 'todoList');
   render();
 }
 
 function deleteTodo(idx) {
   todoList.splice(idx, 1);
+
+  makePersistent(todoList, 'todoList');
   render();
+}
+
+function makePersistent(targetData, name) {
+  sessionStorage.setItem(name, JSON.stringify(targetData));
+}
+
+function getPersistentData(name) {
+  return Object.parse(sessionStorage.getItem(name));
 }
 
 function render() {
