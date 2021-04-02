@@ -1,0 +1,146 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Poppins', 'Noto Sans KR', sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin: 0;
+  padding: 0;
+
+  height: 100vh;
+
+  /* background-color: rgb(15, 43, 95); */
+  background-image: linear-gradient(
+    to bottom right,
+    rgb(21, 51, 107),
+    rgb(2, 18, 46)
+  );
+}
+
+.todoApp {
+  display: flex;
+  flex-direction: column;
+
+  border-radius: 8px;
+
+  width: 500px;
+  height: 600px;
+  background-image: linear-gradient(
+    to bottom right,
+    rgb(230, 230, 230),
+    rgb(131, 127, 118)
+  );
+  box-shadow: 0 2px 3px 1px rgba(235, 233, 233, 0.4);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  height: 120px;
+  padding: 20px 40px;
+}
+
+.header-left {
+  display: flex;
+}
+
+.date {
+  font-size: 3rem;
+  margin-top: 4px;
+  margin-right: 6px;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.year {
+  color: #666;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  color: #555;
+  font-size: 1.2rem;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  width: 450px;
+  box-shadow: 0 2px 3px 2px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  background-color: rgb(218, 218, 218);
+}
+
+.todo-list-box {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 25px;
+  width: 100%;
+}
+
+input {
+  background-color: rgba(0, 0, 0, 0);
+  outline: none;
+  font-size: 1.5rem;
+  border: none;
+  width: 350px;
+  height: 50px;
+}
+
+button {
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 3px;
+  background-color: rgba(0, 0, 0, 0.2);
+  width: 80px;
+  height: 50px;
+  cursor: pointer;
+  box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.4);
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  border-bottom: 1px solid #888;
+}
+
+.todo-item-checkbox {
+  width: 30px;
+}
+
+.todo-item-text {
+  width: 100%;
+}
+
+.checked .todo-item-text {
+  text-decoration: line-through;
+  color: #666;
+}
+
+.btn-delete {
+  background-color: rgb(204, 49, 49);
+  color: #fff;
+  height: 32px;
+  font-size: 1rem;
+}

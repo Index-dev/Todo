@@ -1,3 +1,22 @@
 body {
   background-color: rgba(0, 2, 46, 1);
 }
+
+.todoItem {
+  background-color: white;
+  cursor: move;
+}
+
+.done {
+  opacity: 0.5;
+}
+
+.todoContainer {
+  padding: 1rem;
+  margin: 1rem;
+  border: 1px solid white;
+  transition: all 1s ease-in-out;
+}
+.dragging {
+  opacity: 0.5;
+}
