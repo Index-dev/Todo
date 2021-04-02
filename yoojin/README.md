@@ -9,12 +9,12 @@
   : SCSS, Javascript , react
 
 <ul>
-    <input = "checkbox" /> input component
-    <input = "checkbox" /> List component
-    <input = "checkbox" /> ListItem component
-    <input = "checkbox" /> TODOTemplate component
-    <input = "checkbox" /> TODO SCSS
-    <input = "checkbox" /> TODO ADD
-    <input = "checkbox" /> TODO DELETE
-    <input = "checkbox" /> React Hook
+    <input type= "checkbox" /> input component
+    <input type= "checkbox" /> List component
+    <input type= "checkbox" /> ListItem component
+    <input type= "checkbox" /> TODOTemplate component
+    <input type= "checkbox" /> TODO SCSS
+    <input type= "checkbox" /> TODO ADD
+    <input type= "checkbox" /> TODO DELETE
+    <input type= "checkbox" /> React Hook
 </ul>
