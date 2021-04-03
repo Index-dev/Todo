@@ -39,7 +39,7 @@ button {
   font-family: "Fredericka the Great", cursive;
   font-size: 60px;
   font-weight: 500;
-  color: #f3a313;
+  color: #f3a314;
   animation: flicker 3s linear infinite;
 }
 @keyframes flicker {
