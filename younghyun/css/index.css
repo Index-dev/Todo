@@ -1,22 +1,132 @@
 body {
-  background-color: rgba(0, 2, 46, 1);
+  height: 100vh;
+  background: linear-gradient(-45deg, #003c52, #283c95, #013c73);
+  background-size: 400%;
+  animation: gradient 20s ease infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-.todoItem {
-  background-color: white;
-  cursor: move;
+@keyframes gradient {
+  0% {
+    background-position: 0%, 50%;
+  }
+  50% {
+    background-position: 100%, 50%;
+  }
+  100% {
+    background-position: 0%, 50%;
+  }
+}
+
+button {
+  background-color: transparent;
+  outline: none;
+  border: none;
+}
+
+.container {
+  width: 80vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.todoTitle {
+  font-family: "Fredericka the Great", cursive;
+  font-size: 60px;
+  font-weight: 500;
+  color: #f3a314;
+  animation: flicker 3s linear infinite;
+}
+@keyframes flicker {
+  0%,
+  19.999%,
+  64.999%,
+  100% {
+    opacity: 0.99;
+    text-shadow: 0 -2px 8px, 0 0 2px, 0 0 5px, #ff7e00, 0 0 15px #ff4444,
+      0 0 2px #ff7e00;
+  }
+  20% {
+    opacity: 0.4;
+    text-shadow: none;
+  }
+}
+
+.todoForm {
+  width: 20vw;
+  height: 5vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #296ea5;
+}
+.inputText {
+  width: 80%;
+  height: 80%;
+  background-color: transparent;
+
+  font-family: "East Sea Dokdo", cursive;
+  font-size: 30px;
+  outline: none;
+  border: none;
 }
 
 .done {
-  opacity: 0.5;
+  opacity: 0.1;
 }
 
-.todoContainer {
-  padding: 1rem;
-  margin: 1rem;
-  border: 1px solid white;
-  transition: all 1s ease-in-out;
+.ulContainer {
+  width: 35vw;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #296ea5;
+  margin-top: 1rem;
 }
+.todoContainer {
+  min-height: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 0;
+}
+.important {
+  border-bottom: 3px solid rgba(0, 0, 0, 0.2);
+}
+.important .todoItem {
+  background-color: #013c73;
+}
+
+.todoItem {
+  width: 30vw;
+  height: 50px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.2);
+  font-size: 25px;
+  color: #f1e384;
+  font-family: "East Sea Dokdo", cursive;
+
+  list-style: none;
+  transition: all 0.3s ease-in-out;
+}
+.remove {
+  position: absolute;
+  top: 20%;
+  right: 1rem;
+  font-size: 22px;
+  cursor: pointer;
+}
+
 .dragging {
   opacity: 0.5;
 }
