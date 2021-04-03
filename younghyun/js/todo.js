@@ -54,15 +54,16 @@ function draw(todo) {
   work.innerText = todo.content;
   const remove = document.createElement("button");
   remove.addEventListener("click", removeTodo);
-  remove.innerText = "삭제";
+  remove.innerText = "🔥";
+  remove.className = "remove";
   const done = document.createElement("button");
   done.addEventListener("click", changeDone);
-  done.innerText = li.classList.contains("done") ? "doesn`t" : "done";
+  done.innerText = "🎇";
   li.classList.add("todoItem", todo.done, todo.importance);
   li.draggable = "true";
-  li.appendChild(remove);
   li.appendChild(done);
   li.appendChild(work);
+  li.appendChild(remove);
   li.id = todo.index;
   if (todo.importance === "important") {
     importantList.appendChild(li);
