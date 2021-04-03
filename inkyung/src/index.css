@@ -1,0 +1,24 @@
+@import url(https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap);
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+@import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Hanna', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #f9f9f9;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+button {
+  margin: 0;
+  font-family: 'Nanum Pen Script', cursive;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
