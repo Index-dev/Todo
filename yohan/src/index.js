@@ -38,7 +38,7 @@ const days = [
   'SATURDAY',
 ];
 
-const todoList = [];
+const todoList = getPersistentData('todoList') || [];
 
 // Events
 inputTodo.addEventListener('keydown', e => {
@@ -63,12 +63,23 @@ function addTodo(value) {
     checked: false,
   });
 
+  makePersistent(todoList, 'todoList');
   render();
 }
 
 function deleteTodo(idx) {
   todoList.splice(idx, 1);
+
+  makePersistent(todoList, 'todoList');
   render();
+}
+
+function makePersistent(targetData, name) {
+  sessionStorage.setItem(name, JSON.stringify(targetData));
+}
+
+function getPersistentData(name) {
+  return JSON.parse(sessionStorage.getItem(name));
 }
 
 function render() {
@@ -80,8 +91,10 @@ function render() {
   // append every item to the list
   todoList.forEach((todo, idx) => {
     const html = `
-      <div class='todo-item'>
-        <input type="checkbox" class='todo-item-checkbox' name='checkbox-${idx}' />
+      <div class='todo-item ${todo.checked ? 'checked' : ''}'>
+        <input type="checkbox" class='todo-item-checkbox' name='checkbox-${idx}' ${
+      todo.checked && 'checked'
+    } />
           <div class='todo-item-text'>
             ${todo.text}
           </div>
@@ -106,10 +119,14 @@ function render() {
         const target = todoItemList[Number(e.target.name.split('-')[1])];
 
         if (target.classList[1]) {
+          todoList[idx].checked = false;
           target.classList.remove('checked');
         } else {
+          todoList[idx].checked = true;
           target.classList.add('checked');
         }
+
+        makePersistent(todoList, 'todoList');
       }
     });
   });
@@ -135,4 +152,5 @@ function updateDate() {
   day.textContent = days[currentTime.getDay()];
 }
 
+render();
 updateDate();
